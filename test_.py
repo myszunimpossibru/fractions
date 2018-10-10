@@ -11,8 +11,7 @@ class TestFraction(TestCase):
 
     def test_sanitization(self):
         val = Fraction(3, -6)
-        self.assertEqual(-1, val.nom)
-        self.assertEqual(2, val.denom)
+        self.assertEqual(Fraction(-1, 2).__dict__, val.__dict__)
 
     def test_add(self):
         a = Fraction(1, 3)
@@ -43,7 +42,7 @@ class TestFraction(TestCase):
             Fraction(1, 0)
 
     def test_non_integer(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises((ValueError, TypeError)):
             Fraction(1.5, 2)
-        with self.assertRaises(ValueError):
+        with self.assertRaises((ValueError, TypeError)):
             Fraction(1, 2.5)
