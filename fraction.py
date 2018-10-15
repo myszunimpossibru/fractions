@@ -58,4 +58,6 @@ class Fraction(object):
 
     def value(self):
         return self.nominator/self.denominator
+
+#
 		
